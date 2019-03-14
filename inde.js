@@ -46,9 +46,58 @@
 //
 // console.log(a[b]);
 
-i = 5
-while(i > 0){
-  console.log('*');
+// fibbonocci
 
-  i -=2
-}
+// function fibbonocci(){
+//   let n1 = 1
+//   let n2 = 1
+//   let i = 0
+//   let max = 10
+//
+//
+//   while(i < max){
+//     n1 = n1 + n2
+//     n2 = n1 - n2
+//     console.log(n1);
+//     i+=1
+//   }
+// }
+// fibbonocci()
+
+// function scope(){
+//   for(var i = 0; i<5; i++){
+//     console.log(i);
+//   }console.log(i);
+// }
+//
+// scope()
+
+
+// function sortThis(){
+//   let arr = [3, 1, 'a', 5]
+//
+//   arr.sort((a, b)=>{
+//     if(a < b){
+//       return -1
+//     }else{
+//       return 1
+//     }
+//   })
+//   console.log(arr);
+// }
+// sortThis()
+
+const formatDuration = ms => {
+  if (ms < 0) ms = -ms;
+  const time = {
+    day: Math.floor(ms / 86400000),
+    hour: Math.floor(ms / 3600000) % 24,
+    minute: Math.floor(ms / 60000) % 60,
+    second: Math.floor(ms / 1000) % 60,
+    millisecond: Math.floor(ms) % 1000
+  };
+  return Object.entries(time)
+    .filter(val => val[1] !== 0)
+    .map(([key, val]) => `${val} ${key}${val !== 1 ? 's' : ''}`)
+    .join(', ');
+};
