@@ -136,3 +136,48 @@
 // }
 //
 // helpMe()
+
+// console.log(typeof(undefined))
+// console.log(typeof(null))
+
+// var y = 1;
+// if (function f() {}) {
+//   y += typeof f;
+// }
+// console.log(y); //undefined
+//
+// function x(){}
+// console.log(typeof(x)); //function
+
+
+// // filter() map() forEach()
+// let filtArr = [10, 20, 30, 20, 20, 10, 5, 20, 26]
+// let bigArr = filtArr.filter(item =>{
+//   return item > 25
+// })
+// console.log('filtArr', filtArr);
+// console.log('bigArr', bigArr);
+//
+// bigArr.forEach((item, i) =>{
+//   return bigArr[i] = item*2
+// })
+// console.log(bigArr);
+//
+// let mapArr = filtArr.map(item =>{
+//   return item * 2
+// })
+// console.log('Map',mapArr);
+
+
+// Annograms
+
+let str1 = 'listen'
+let str2 = 'silent'
+
+function Annograms(str1, str2){
+  let w1 = (str1.split('').sort().join(''));
+  let w2 = (str2.split('').sort().join(''));
+  console.log((w1 === w2));
+}
+
+Annograms(str1, str2)
