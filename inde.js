@@ -171,13 +171,18 @@
 
 // Annograms
 
-let str1 = 'listen'
-let str2 = 'silent'
+// let str1 = 'listen'
+// let str2 = 'silent'
+//
+// function Annograms(str1, str2){
+//   let w1 = (str1.split('').sort().join(''));
+//   let w2 = (str2.split('').sort().join(''));
+//   console.log((w1 === w2));
+// }
+//
+// Annograms(str1, str2)
 
-function Annograms(str1, str2){
-  let w1 = (str1.split('').sort().join(''));
-  let w2 = (str2.split('').sort().join(''));
-  console.log((w1 === w2));
+
+for (let i = 0; i < 5; i++) {
+	setTimeout(function() { console.log(i); }, i * 1000 );
 }
-
-Annograms(str1, str2)
