@@ -187,15 +187,41 @@
 // 	setTimeout(function() { console.log(i); }, i * 1000 );
 // }
 
-(function () {
-    var x, y; // outer and hoisted
-    try {
-        throw new Error();
-    } catch (x /* inner */) {
-        x = 1; // inner x, not the outer one
-        y = 2; // there is only one y, which is in the outer scope
-        console.log(x /* inner */);
-    }
-    console.log(x);
-    console.log(y);
-})();
+// (function () {
+//     var x, y; // outer and hoisted
+//     try {
+//         throw new Error();
+//     } catch (x /* inner */) {
+//         x = 1; // inner x, not the outer one
+//         y = 2; // there is only one y, which is in the outer scope
+//         console.log(x /* inner */);
+//     }
+//     console.log(x);
+//     console.log(y);
+// })();
+
+
+// let arr = ['c', 'a', 't']
+// function reverseInPlace(arr) {
+//
+//   let newArr = []
+//   let i = 0
+//
+//   while(i < arr.length){
+//     let char = arr.pop()
+//     newArr.push(char)
+//   }
+//   newArr = newArr.join('')
+//   console.log(newArr);
+// }
+// reverseInPlace(arr)
+
+// 
+// (function (){
+//   let word = 'word'
+//
+//   let arr =  word.split('')
+//
+//
+//   console.log(arr);
+// })()
