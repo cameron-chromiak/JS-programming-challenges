@@ -216,12 +216,22 @@
 // }
 // reverseInPlace(arr)
 
-// 
+//
 // (function (){
 //   let word = 'word'
 //
 //   let arr =  word.split('')
-//
-//
-//   console.log(arr);
+//   let reword = arr.join('')
+//   console.log(reword);
 // })()
+
+
+function isPalindrome(){
+  let word = 'racecar'
+
+  let arr = word.split('').reverse().join('')
+  console.log((arr == word) ? true:false);
+
+}
+
+isPalindrome()
