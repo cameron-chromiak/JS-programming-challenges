@@ -356,7 +356,7 @@ const rover = {
   y: 0
 }
 
-function turnLeft(rover) {
+function turnLeft() {
   console.log("turnLeft() was called!")
   switch (rover.direction) {
     case "N":
@@ -374,7 +374,7 @@ function turnLeft(rover) {
   }
 };
 
-function turnRight(rover) {
+function turnRight() {
   console.log('turnRight() was called');
   switch (rover.direction) {
     case "N":
@@ -393,7 +393,7 @@ function turnRight(rover) {
   }
 }
 
-  function moveForward(rover) {
+  function moveForward() {
     console.log('moveForward() was called');
     switch (rover.direction) {
       case "N":
@@ -408,24 +408,45 @@ function turnRight(rover) {
       case "W":
         rover.x-= 1;
     };
-    console.log(rover.position)
   };
 
   function roverCommand(command) {
+    let validCommands = ['F', 'L', 'R']
+
     for (i = 0; i < command.length; i++) {
+
+      //if current input is not in list of valid commands print error, go to next
+      if(!validCommands.includes(command[i])){
+        console.log(`There was an invalid command, ${command[i]} but it was skipped`)
+        continue
+      }
       switch (command[i].toUpperCase()) {
         case "L":
-          turnLeft(rover);
+          turnLeft();
           break;
         case "R":
-          turnRight(rover);
+          turnRight();
           break;
         case "F":
-          moveForward(rover);
+          moveForward();
           break;
       }
     }
+    //always print your rover then call main to launch prompt again
     console.log(rover);
+    main()
   };
 
-  roverCommand("FLF")
+
+  function main(){
+    let commands = prompt('Enter directions, F, L, or R as string. Eg: FFLRF')
+    if(commands){
+      roverCommand(commands)
+    }
+  }
+
+  main()
+
+// check this link out and see if you can do multiple rovers
+// you'll need to come up with a way for them to take turns with inputs
+  // https://www.w3schools.com/js/js_object_constructors.asp
