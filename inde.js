@@ -350,103 +350,165 @@
 // solution( 'my.song.mp3 11b\ngreatSong.flac 1000b\nnot3.txt 5b\nvideo.mp4 200b\ngame.exe 100b\nmov!e.mkv 10000b' )
 
 
-const rover = {
-  direction: "N",
-  x: 0,
-  y: 0
-}
-
-function turnLeft() {
-  console.log("turnLeft() was called!")
-  switch (rover.direction) {
-    case "N":
-      rover.direction = "W";
-      break;
-    case "W":
-      rover.direction = "S";
-      break;
-    case "S":
-      rover.direction = "E";
-      break;
-    case "E":
-      rover.direction = "N";
-      break;
-  }
-};
-
-function turnRight() {
-  console.log('turnRight() was called');
-  switch (rover.direction) {
-    case "N":
-      rover.direction = "E";
-      break;
-    case "E":
-      rover.direction = "S";
-      break;
-    case "S":
-      rover.direction = "W";
-      break;
-    case "W":
-      rover.direction = "N";
-      break;
-      console.log("turnRight was called!")
-  }
-}
-
-  function moveForward() {
-    console.log('moveForward() was called');
-    switch (rover.direction) {
-      case "N":
-        rover.y += 1;
-        break;
-      case "S":
-        rover.y -= 1;
-        break;
-      case "E":
-        rover.x += 1;
-        break;
-      case "W":
-        rover.x-= 1;
-    };
-  };
-
-  function roverCommand(command) {
-    let validCommands = ['F', 'L', 'R']
-
-    for (i = 0; i < command.length; i++) {
-
-      //if current input is not in list of valid commands print error, go to next
-      if(!validCommands.includes(command[i])){
-        console.log(`There was an invalid command, ${command[i]} but it was skipped`)
-        continue
-      }
-      switch (command[i].toUpperCase()) {
-        case "L":
-          turnLeft();
-          break;
-        case "R":
-          turnRight();
-          break;
-        case "F":
-          moveForward();
-          break;
-      }
-    }
-    //always print your rover then call main to launch prompt again
-    console.log(rover);
-    main()
-  };
-
-
-  function main(){
-    let commands = prompt('Enter directions, F, L, or R as string. Eg: FFLRF')
-    if(commands){
-      roverCommand(commands)
-    }
-  }
-
-  main()
+// const rover = {
+//   direction: "N",
+//   x: 0,
+//   y: 0
+// }
+//
+// function turnLeft() {
+//   console.log("turnLeft() was called!")
+//   switch (rover.direction) {
+//     case "N":
+//       rover.direction = "W";
+//       break;
+//     case "W":
+//       rover.direction = "S";
+//       break;
+//     case "S":
+//       rover.direction = "E";
+//       break;
+//     case "E":
+//       rover.direction = "N";
+//       break;
+//   }
+// };
+//
+// function turnRight() {
+//   console.log('turnRight() was called');
+//   switch (rover.direction) {
+//     case "N":
+//       rover.direction = "E";
+//       break;
+//     case "E":
+//       rover.direction = "S";
+//       break;
+//     case "S":
+//       rover.direction = "W";
+//       break;
+//     case "W":
+//       rover.direction = "N";
+//       break;
+//       console.log("turnRight was called!")
+//   }
+// }
+//
+//   function moveForward() {
+//     console.log('moveForward() was called');
+//     switch (rover.direction) {
+//       case "N":
+//         rover.y += 1;
+//         break;
+//       case "S":
+//         rover.y -= 1;
+//         break;
+//       case "E":
+//         rover.x += 1;
+//         break;
+//       case "W":
+//         rover.x-= 1;
+//     };
+//   };
+//
+//   function roverCommand(command) {
+//     let validCommands = ['F', 'L', 'R']
+//
+//     for (i = 0; i < command.length; i++) {
+//
+//       //if current input is not in list of valid commands print error, go to next
+//       if(!validCommands.includes(command[i])){
+//         console.log(`There was an invalid command, ${command[i]} but it was skipped`)
+//         continue
+//       }
+//       switch (command[i].toUpperCase()) {
+//         case "L":
+//           turnLeft();
+//           break;
+//         case "R":
+//           turnRight();
+//           break;
+//         case "F":
+//           moveForward();
+//           break;
+//       }
+//     }
+//     //always print your rover then call main to launch prompt again
+//     console.log(rover);
+//     main()
+//   };
+//
+//
+//   function main(){
+//     let commands = prompt('Enter directions, F, L, or R as string. Eg: FFLRF')
+//     if(commands){
+//       roverCommand(commands)
+//     }
+//   }
+//
+//   main()
 
 // check this link out and see if you can do multiple rovers
 // you'll need to come up with a way for them to take turns with inputs
   // https://www.w3schools.com/js/js_object_constructors.asp
+
+
+
+
+//Protoypes
+
+// function Human(n, a){
+//   let human = {}
+//   name =  n;
+//   age = a;
+//
+//   human.greet = () => `Hi, I'm ${this.name}`
+//
+// }
+//
+// let p1 = new Human('Cam', 20)
+// p1.human.greet()
+
+//help
+// let display = document.getElementById('display')
+// let btnOne = document.getElementById('button')
+// let wrapper = document.querySelector('.wrapper')
+// let btns = wrapper.childNodes;
+//
+// for(let i=0; i<btns.length; i++){
+//   btns[i].addEventListener('click', function(){
+//     display.innerHTML =  btns[i].value
+//     console.log(typeof(btns[i].value));
+//   })
+// }
+
+class Timers {
+  constructor() {
+    this.secondsLeft = 5;
+    this.running = false;
+    this.rest = true;
+    this.time;
+    this.cycleSet = 2;
+    this.currentCycle = 0;
+    this.valueWork = 5;
+    this.valueRest = 3
+  }
+  countdownWork() {
+    this.secondsLeft -= 1;
+    if(this.secondsLeft < 0) {
+    this.secondsLeft = this.rest ? this.valueRest : this.valueWork;
+    this.rest = !this.rest;
+      }
+    console.log(this.secondsLeft)
+  }
+  start() {
+    this.running = true;
+    this.time = setInterval(this.countdownWork.bind(this), 1000)
+    console.log(this.secondsLeft)
+  }
+  stop() {
+    this.running = false;
+    clearInterval(this.time);
+  }
+}
+
+let time = new Timers()
